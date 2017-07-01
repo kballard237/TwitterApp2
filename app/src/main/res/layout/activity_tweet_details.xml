@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@android:color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tvUsername2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/tvBody2" />
+
+    <TextView
+        android:id="@+id/tvBody2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUsername2"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:text="Tweet text " />
+
+    <TextView
+        android:id="@+id/tvScreenName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvBody2"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/tvUsername2"
+        android:text="ScreenName"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvRelativeTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvScreenName2"
+        android:layout_alignBottom="@+id/tvScreenName2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="5dp"
+        android:text="Time Stamp"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/replyButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/tvBody2"
+        android:layout_below="@+id/tvBody2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#ffffff"
+        app:srcCompat="@mipmap/tweet_reply" />
+
+</RelativeLayout>
