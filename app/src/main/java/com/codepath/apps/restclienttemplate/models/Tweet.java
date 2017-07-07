@@ -21,7 +21,10 @@ public class Tweet {
     public long uid;
     public User user;
     public String createdAt;
-    public String relativeTime; //added
+    public String relativeTime;
+    public boolean retweeted;
+    public boolean favorited; //added
+
 
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -30,9 +33,15 @@ public class Tweet {
         tweet.uid = jsonObject.getLong("id");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+        tweet.retweeted = jsonObject.getBoolean("retweeted");
         tweet.relativeTime = tweet.getRelativeTimeAgo(tweet.createdAt); //added
+        tweet.favorited = jsonObject.getBoolean("favorited");
         return tweet;
 
+    }
+
+    public void setFavorited(boolean favorited) {
+        this.favorited = favorited;
     }
 
     // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
@@ -52,4 +61,6 @@ public class Tweet {
 
         return relativeDate;
     }
+
+
 }

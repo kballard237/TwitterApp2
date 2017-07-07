@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
+    android:layout_margin="1dp"
+    android:background="#ffffff"
     android:layout_width="match_parent" android:layout_height="wrap_content">
 
     <ImageView
@@ -58,9 +59,28 @@
         android:layout_height="30dp"
         android:layout_alignStart="@+id/tvBody2"
         android:layout_below="@+id/tvBody2"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:backgroundTint="#ffffff"
         app:srcCompat="@mipmap/tweet_reply" />
+
+    <ImageButton
+        android:id="@+id/retweetButton"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        app:srcCompat="@mipmap/retweet_gray"
+        android:layout_alignTop="@+id/replyButton"
+        android:layout_toEndOf="@+id/replyButton"
+        android:layout_marginLeft="20dp"/>
+
+    <ImageButton
+        android:id="@+id/favoriteButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:srcCompat="@mipmap/favorite_gray"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/retweetButton"
+        android:layout_toEndOf="@+id/retweetButton" />
 
 </RelativeLayout>

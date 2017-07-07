@@ -51,12 +51,71 @@ public class TwitterClient extends OAuthBaseClient {
 		client.get(apiUrl, params, handler);
 	}
 
+	public void getMentionsTimeline(AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("count", 25);
+		params.put("since_id", 1);
+		client.get(apiUrl, params, handler);
+	}
+
+	public void getUserTimeline(String screenName, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/user_timeline.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("count", 25);
+		params.put("screen_name", screenName);
+		client.get(apiUrl, params, handler);
+	}
+
+	public void getUserInfo(AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("account/verify_credentials.json");
+		// Can specify query string params directly or through RequestParams.
+		client.get(apiUrl, null, handler);
+	}
+
 	public void sendTweet(String message, AsyncHttpResponseHandler handler) {
 		String apiUrl = getApiUrl("statuses/update.json");
 		// Can specify query string params directly or through RequestParams.
 		RequestParams params = new RequestParams();
 		params.put("status", message);
 		client.post(apiUrl, params, handler);
+	}
+
+	public void favorite(boolean favoriting, Long tweetID, AsyncHttpResponseHandler handler) {
+		String apiUrl = null;
+		if (favoriting) {
+			apiUrl = getApiUrl("favorites/create.json");
+		} else {
+			apiUrl = getApiUrl("favorites/destroy.json");
+		}
+		RequestParams params = new RequestParams();
+		params.put("id", tweetID);
+		client.post(apiUrl, params, handler);
+
+	}
+
+	public void retweet(boolean retweeting, Long tweetID, AsyncHttpResponseHandler handler) {
+		String apiUrl = null;
+		if (retweeting) {
+			apiUrl = getApiUrl("statuses/retweet/" + tweetID + ".json");
+		} else {
+			apiUrl = getApiUrl("statuses/unretweet/" + tweetID + ".json");
+		}
+		RequestParams params = new RequestParams();
+		params.put("id", tweetID);
+		client.post(apiUrl, params, handler);
+
+	}
+
+	public void getUserInfo(String username, String uid, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("users/show.json");
+		RequestParams params = new RequestParams();
+		params.put("screen_name", username);
+		params.put("user_id", uid);
+		client.get(apiUrl, params, handler);
+
 	}
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint

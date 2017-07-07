@@ -70,4 +70,10 @@ public class ComposeActivity extends AppCompatActivity {
 
     }
 
+    public void onCancelReply(View view) {
+        Intent intent = new Intent();
+        setResult(10, intent);
+        finish();
+    }
+
 }

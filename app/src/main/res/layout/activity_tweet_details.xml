@@ -4,6 +4,15 @@
     android:layout_margin="5dp"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <ImageButton
+        android:id="@+id/favoriteButton"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@mipmap/favorite_gray"
+        android:layout_alignTop="@+id/retweetButton"
+        android:layout_centerHorizontal="true" />
+
     <ImageView
         android:id="@+id/ivProfileImage"
         android:layout_width="50dp"
@@ -61,6 +70,16 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:backgroundTint="#ffffff"
+        android:onClick="onReplyClick"
         app:srcCompat="@mipmap/tweet_reply" />
+
+    <ImageButton
+        android:id="@+id/retweetButton"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        app:srcCompat="@mipmap/retweet_gray"
+        android:layout_alignTop="@+id/replyButton"
+        android:layout_toEndOf="@+id/replyButton"
+        android:layout_marginLeft="20dp"/>
 
 </RelativeLayout>
